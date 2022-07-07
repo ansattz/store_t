@@ -1,2 +1,71 @@
-<title>Douglas</title>
-<body>XD</body>
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <link rel="icon" type="image/png" href="/adv/static/adv/img/laptop.png" sizes="32x32"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.1/dist/semantic.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.1/dist/semantic.min.js"></script>
+      <title>Ansattz's store</title>
+   </head>
+   <body>
+
+      <div class="ui attached menu">
+         <div class="ui container">
+            <a class="item">Ansattz announcements</a>
+            <div class="right menu">
+                  <div class="ui right aligned category search item">
+                     <div class="ui transparent icon input">
+                        <input class="prompt" type="text" placeholder="Search here">
+                        <i class="search link icon"></i>
+                     </div>
+                     <div class="results"></div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      <div class="ui hidden divider"></div>
+         <div class="ui container">
+            <div class="ui stackable grid">
+               <div class="four wide column">
+                  <div class="ui vertical fluid menu">
+                     {% for type in  types %}
+                     <a class="item">
+                        {{ type }}
+                     </a>
+                     {% endfor %}
+                  </div>
+               </div>
+               <div class="twelve wide column">
+                  <div class="ui three column stackable grid">
+                     {% for announcement in announcements %} 
+                     <div class="column">
+                        <div class="ui fluid card">
+                           <!--
+                           <div class="image">
+                              <img src="{% static 'adv/img/laptop.png' %}"/>
+                           </div>
+                           -->
+                           <div class="content">
+                              <a class="header">{{announcement}}</a>
+                           </div>
+                           <div class="extra content">
+                              R$ {{announcement.price}}
+                              
+                           </div>
+                        </div>
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+
+      
+   </body>
+   
+</html>
+
+
