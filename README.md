@@ -1,4 +1,4 @@
-# STORE PROJECT
+# :shopping: STORE PROJECT :shopping:
 ## This project consists of a website for product announcements.
 
 ### Technologies I'm using in this project:
