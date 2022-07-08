@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 class="ui block header">{{announcement}}
+   <div class="sub header">Announcement created in: {{ announcement.created_in }}</div>
+   <div class="sub header">Announcement modified in: {{ announcement.edited_in }}</div>
+</h1>
+
+<div class="ui grid">
+   <div class="sixteen wide column">
+      <div class="ui image">
+         <img src="{% static 'announcement/img/online-shopping.png' %}">
+      </div>
+   </div>
+   <div class="sixteen wide column">
+      <div class="ui attached segment">
+         <h2 class="ui green header">Price: R$ {{ announcement.price }}</h2>
+         <h2 class="ui header">Description</h2>
+         {%if announcement.description %}
+         <p>{{ announcement.description }}</p>
+         {% else %}
+         <p>This announcement have not description.</p>
+         {% endif %}   
+      </div>
+   </div>
+</div>
+
+{% endblock %}

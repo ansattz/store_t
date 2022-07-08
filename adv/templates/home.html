@@ -10,7 +10,7 @@
             <img src="{% static 'announcement/img/online-shopping.png' %}">
          </div>         
          <div class="content">
-            <a class="header">{{announcement}}</a>
+            <a href="{% url 'announcement' announcement.id %}" class="header">{{announcement}}</a>
          </div>
          <div class="extra content">
             R$ {{announcement.price}}
