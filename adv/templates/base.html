@@ -9,12 +9,12 @@
    
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.1/dist/semantic.min.css">
       <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.1/dist/semantic.min.js"></script>
-      <title>Ansattz's store</title>
+      <title>Ansattz's Store</title>
    </head>
    <body>
       <div class="ui attached menu">
          <div class="ui container">
-            <a href="{% url 'home' %}" class="item">Ansattz announcements</a>
+            <a href="{% url 'home' %}" class="item">Ansattz Announcements</a>
             <div class="right menu">
                   <div class="ui right aligned category search item">
                      <div class="ui transparent icon input">
@@ -32,13 +32,16 @@
                <div class="four wide column">
                   <div class="ui vertical fluid menu">
                      {% for type in  types %}
-                     <a class="item">
+                     <a href="{% url 'type' type.id %}" class="item">
                         {{ type }}
                      </a>
                      {% endfor %}
                   </div>
                </div>
                <div class="twelve wide column">
+                  {% if type %}
+                     <h1 class="ui header"> {{type}}</h1>
+                  {% endif %}
                   {% block content %}
                   {% endblock %}
                </div>

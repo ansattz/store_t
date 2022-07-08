@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from .models import Type
 from .models import Announcement
 
@@ -13,8 +14,10 @@ def home(request):
 def type(request, type_id):
    types = Type.objects.all()
 
-   type = Type.objects.get(id=type_id)
+   type = get_object_or_404(Type, id=type_id)
    announcements = Announcement.objects.filter(type=type)
 
-   return render(request, 'home.html', {'types': types, 'announcements': announcements})
+   return render(request, 'home.html', {'types': types,
+   'announcements': announcements,
+   'type': type })
 
