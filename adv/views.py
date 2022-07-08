@@ -5,6 +5,7 @@ from .models import Announcement
 
 def home(request):
    types = Type.objects.all()
-   announcements = Announcement.objects.all()
+   last_announc = Announcement.objects.all()[:12]
 
-   return render(request, 'home.html', {'types': types, 'announcements': announcements})
+
+   return render(request, 'home.html', {'types': types, 'announcements': last_announc})
